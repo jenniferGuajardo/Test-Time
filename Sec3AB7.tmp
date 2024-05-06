@@ -1,0 +1,144 @@
+[gd_scene load_steps=11 format=3 uid="uid://cfuquwwak1368"]
+
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_q54dv"]
+[ext_resource type="AudioStream" uid="uid://cmkwosf2gk7ag" path="res://click-button-140881.mp3" id="2_r186s"]
+[ext_resource type="AudioStream" uid="uid://nc3chwauuu31" path="res://mystery-atmosphere-176997.mp3" id="3_an43m"]
+[ext_resource type="AudioStream" uid="uid://rov76p7ax1i6" path="res://music-box-for-suspenseful-scenes-166461.mp3" id="4_2wxqn"]
+[ext_resource type="AudioStream" uid="uid://dafxuq1gx3ga1" path="res://a-shotgun-blast-165915.mp3" id="5_jr0px"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e58jn"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xu686"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_806kg"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p7spt"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_k2l74"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="SecondIteration-Maze" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6827, 0, 3)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.19958, 0)
+script = ExtResource("1_q54dv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_e58jn")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.623357, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.99845, 0.0556649, 0, -0.0556649, 0.99845, 0, 0, 0)
+light_color = Color(1, 0.878431, 0.721569, 1)
+light_energy = 4.0
+light_size = 1.0
+distance_fade_length = 15.0
+spot_range = 42.103
+spot_angle = 29.6595
+
+[node name="Start House Plain" type="MeshInstance3D" parent="."]
+transform = Transform3D(28, 0, 0, 0, 5, 0, 0, 0, 5, 19, 1, 0)
+mesh = SubResource("PlaneMesh_xu686")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Start House Plain"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Start House Plain/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_806kg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 3, 0, 0, 0, 3, 20, 2, -6.50237)
+mesh = SubResource("BoxMesh_p7spt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_k2l74")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 3, 0, 0, 0, 3, 20, 5, -9.50237)
+mesh = SubResource("BoxMesh_p7spt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_k2l74")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 3, 0, 0, 0, 3, 20, 8, -12.5024)
+mesh = SubResource("BoxMesh_p7spt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_k2l74")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 3, 0, 0, 0, 3, 20, 2, 6.49763)
+mesh = SubResource("BoxMesh_p7spt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D4/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_k2l74")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 3, 0, 0, 0, 3, 20, 5, 9.49763)
+mesh = SubResource("BoxMesh_p7spt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D5/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_k2l74")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 3, 0, 0, 0, 3, 20, 8, 12.4976)
+mesh = SubResource("BoxMesh_p7spt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D6/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_k2l74")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.31134e-06, 0, 5, 0, 25, 0, -30, 0, -2.18557e-07, -7, 11, 0.49763)
+mesh = SubResource("BoxMesh_p7spt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D7/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_k2l74")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.31134e-06, 0, 5, 0, 25, 0, -30, 0, -2.18557e-07, 47, 11, 0.49763)
+mesh = SubResource("BoxMesh_p7spt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D8"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D8/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_k2l74")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_r186s")
+pitch_scale = 1.2
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_an43m")
+volume_db = 10.739
+pitch_scale = 0.41
+
+[node name="Flashlight Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2wxqn")
+
+[node name="Flicker" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_r186s")
+volume_db = 7.128
+pitch_scale = 5.65
+
+[node name="Footstep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jr0px")
+volume_db = -12.78
+pitch_scale = 2.2
